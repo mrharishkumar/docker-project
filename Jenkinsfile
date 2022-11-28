@@ -17,7 +17,7 @@ pipeline{
         }
         stage('Build') {
 			steps {
-				sh 'docker build -t mrharishkumar/java_server_admin:latest .'
+				sh 'docker build -t mrharishkumar/docker_project:latest .'
 			}
 		}
 		stage('Push') {
@@ -26,7 +26,7 @@ pipeline{
 				withCredentials([string(credentialsId: 'cred-docker', variable: 'dockerhubpwd')]) {
 				sh "docker login -u mrharishkumar -p ${dockerhubpwd}"
                     }
-                    sh "docker push mrharishkumar/java_server_admin"
+                    sh "docker push mrharishkumar/docker_project"
 		        }
 		    }
 		}
