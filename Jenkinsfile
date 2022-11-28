@@ -24,7 +24,7 @@ pipeline{
 		    steps {
 		        script {
 		            withCredentials([string(credentialsId: 'docker-cred', variable: 'docker-cred')]) {
-		                sh "docker login -u mrharishkumar -p ${docker-cred}"
+		                sh "docker login -u mrharishkumar -p ${dockercred}"
                     }
                     sh "docker push mrharishkumar/java_server_admin"
 		        }
