@@ -17,16 +17,16 @@ pipeline{
         }
         stage('Build') {
 			steps {
-				sh 'docker build -t kushh/java_server_admin:latest .'
+				sh 'docker build -t mrharishkumar/java_server_admin:latest .'
 			}
 		}
 		stage('Push') {
 		    steps {
 		        script {
 		            withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockercred')]) {
-		                sh "docker login -u kushh -p ${dockercred}"
+		                sh "docker login -u mrharishkumar -p ${dockercred}"
                     }
-                    sh "docker push kushh/java_server_admin"
+                    sh "docker push mrharishkumar/java_server_admin"
 		        }
 		    }
 		}
