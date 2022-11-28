@@ -7,8 +7,7 @@ pipeline{
         stage('Git clone')
         {
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kushagrakush/spring-admin-server']]])
-           
+		checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mrharishkumar/docker-project']]])           
             }
         }
         stage('build project') {
