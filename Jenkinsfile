@@ -23,7 +23,7 @@ pipeline{
 		stage('Push') {
 		    steps {
 		        script {
-		            withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-cred')]) {
+		            withCredentials([string(credentialsId: 'docker-cred', variable: 'docker-cred')]) {
 		                sh "docker login -u mrharishkumar -p ${docker-cred}"
                     }
                     sh "docker push mrharishkumar/java_server_admin"
